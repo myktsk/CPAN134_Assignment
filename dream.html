@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dream | Miyuki Tuisku Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .choiceList {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .choiceList li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 24px;
+      }
+
+      .choiceList .choice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 90px;
+        text-align: center;
+        color: #777;
+        background-color: #ebf4ff;
+      }
+
+      .choiceList .choice p {
+        font-weight: bold;
+        margin: 0 0 8px;
+      }
+
+      .choiceList .choice img {
+        width: 40px;
+        height: auto;
+        opacity: 0.24;
+      }
+
+      .choiceList .choice.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .choiceList .choice.active img {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <p id="title"><a href="./index.html">Miyuki Tuisku</a></p>
+        <nav>
+          <ul>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./dream.html" target="_blank">My Dream</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="dreamPage" class="container">
+      <h2 class="pageTitle">My Dream</h2>
+      <p style="font-size: 16px; margin-top: 24px">
+        <b>My dream is to become a successful software engineer.</b><br />I want
+        to work for a company that values my skills and provides me with
+        opportunities to grow. I want to work on projects that make a difference
+        in the world. I want to be part of a team that is passionate about
+        creating innovative and impactful software.
+      </p>
+      <section class="section">
+        <h3 class="sectionTitle">My dream work would rather be...</h3>
+        <ul class="choiceList">
+          <li>
+            <div class="choice">
+              <p>Work alone</p>
+              <img src="./images/icon_person.svg" alt="" />
+            </div>
+            <div class="choice active">
+              <p>
+                <strong>Work as <br />a team member</strong>
+              </p>
+              <img src="./images/icon_team.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="choice">
+              <p>Do only<br />front-end</p>
+              <img src="./images/icon_circle.svg" alt="" />
+            </div>
+            <div class="choice active">
+              <p>
+                <strong>Go full stack</strong>
+              </p>
+              <img src="./images/icon_circles.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="choice active">
+              <p>
+                <strong>Work for<br />a startup</strong>
+              </p>
+              <img src="./images/icon_rocket.svg" alt="" />
+            </div>
+            <div class="choice">
+              <p>Work for <br />a big company</p>
+              <img src="./images/icon_building.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="choice active">
+              <p>
+                <strong
+                  >Have a good<br />
+                  work-life balance</strong
+                >
+              </p>
+              <img src="./images/icon_balance.svg" alt="" />
+            </div>
+            <div class="choice">
+              <p>Have a good<br />payment</p>
+              <img src="./images/icon_cash.svg" alt="" />
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3 class="sectionTitle">My (Ideal) Career Milestones</h3>
+        <ol>
+          <li>Get a part-time position in the industry while at school.</li>
+          <li>Graduate from Humber College (preferably with a high GPA).</li>
+          <li>
+            Get a full-time position as a software engineer at a good company.
+          </li>
+          <li>Become a senior engineer.</li>
+          <li>
+            Become a team lead or a manager (only if I find that I enjoy
+            managing people).
+          </li>
+          <li>Start my own start up company.</li>
+          <li>Become rich enough to not be bothered by anything.</li>
+        </ol>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2024 Miyuki Tuisku</p>
+    </footer>
+  </body>
+</html>

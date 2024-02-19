@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Miyuki Tuisku Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .section.intro {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .section.intro .description {
+        flex: 1;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .section.intro .description::first-letter {
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 8px;
+        font-style: italic;
+      }
+
+      .profileImageWrapper {
+        width: 240px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 80px;
+        overflow: hidden;
+      }
+
+      .profileImageWrapper img {
+        display: block;
+        height: 240px;
+        width: auto;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table th {
+        background-color: #ebf4ff;
+      }
+
+      .table th,
+      .table td {
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+
+      .table th {
+        text-align: left;
+        padding: 8px;
+      }
+
+      .skills li {
+        padding: 4px 0;
+      }
+
+      .formWrapper {
+        border: 1px solid #888;
+        padding: 16px 24px;
+        border-radius: 16px;
+      }
+
+      .formRow {
+        margin: 16px 0;
+      }
+
+      .formRow label {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .formRow input,
+      .formRow textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .form .button {
+        margin-left: auto;
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body id="about">
+    <header class="header">
+      <div class="container">
+        <p id="title"><a href="./index.html">Miyuki Tuisku</a></p>
+        <nav>
+          <ul>
+            <li><a href="./about.html">About Me</a></li>
+            <li><a href="./dream.html" target="_blank">My Dream</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="aboutPage" class="container">
+      <h2 class="pageTitle">About Me</h2>
+      <section class="section intro">
+        <div class="profileImageWrapper">
+          <img
+            class="profileImage"
+            src="./images/profile.jpg"
+            alt="Image of me"
+          />
+        </div>
+        <div class="description">
+          <blockquote>
+            Enthusiastic and detail-oriented Web with over 6 years of experience
+            in creating user-friendly and maintainable web applications and
+            websites.<br />
+            Currently a student at Humber College.<br />
+            I am passionate about creating beautiful and functional websites. I
+            love learning new technologies and applying them to my projects.
+          </blockquote>
+        </div>
+      </section>
+      <section class="section">
+        <h3 class="sectionTitle">Basic Info</h3>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <td colspan="2">Miyuki Tuisku</td>
+          </tr>
+          <tr>
+            <th>Date of Birth</th>
+            <td colspan="2">Dec. 15, 1990</td>
+          </tr>
+          <tr>
+            <th>Hometown</th>
+            <td colspan="2">Hakodate, Japan</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td colspan="2">
+              <address>
+                <p>1234 Foobar Street, Toronto, ON, Canada<br />ABC 123</p>
+              </address>
+            </td>
+          </tr>
+          <tr>
+            <th rowspan="3">Links</th>
+            <th>GitHub</th>
+            <td>
+              <a href="https://github.com/myktsk" target="_blank">myktsk</a>
+            </td>
+          </tr>
+          <tr>
+            <th>instagram</th>
+            <td>
+              <a href="https://www.instagram.com/myktsk" target="_blank"
+                >myktsk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <th>Facebook</th>
+            <td>
+              <a href="https://www.facebook.com/miyuki.kudo.14/" target="_blank"
+                >Miyuki Tuisku</a
+              >
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section class="section">
+        <h3 class="sectionTitle">Skills</h3>
+        <ul class="skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript / TypeScript</li>
+          <li>React</li>
+          <li>WordPress</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3 class="sectionTitle">Contact</h3>
+        <div class="formWrapper">
+          <form action="" class="form">
+            <div class="formRow">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div class="formRow">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" />
+            </div>
+            <div class="formRow">
+              <label for="message">Message</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+            <button type="submit" class="button">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2024 Miyuki Tuisku</p>
+    </footer>
+  </body>
+</html>
