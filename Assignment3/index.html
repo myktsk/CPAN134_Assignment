@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 40px;
+        font-family: sans-serif;
+      }
+      .container {
+        width: 80%;
+        min-width: 600px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      table {
+        margin-top: 24px;
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        font-size: 16px;
+        padding: 8px;
+        text-align: left;
+      }
+
+      thead tr {
+        background-color: #dddddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr.totalRow {
+        border-top: 2px solid #000;
+        background-color: white;
+      }
+
+      tr.totalRow th {
+        text-align: right;
+      }
+
+      .lowStock {
+        border-radius: 4px;
+        background-color: #ffcccb;
+        padding: 2px 4px;
+        margin-left: 8px;
+        font-size: 12px;
+        color: red;
+        font-weight: bold;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        background: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-width: 2px;
+        border-style: solid;
+        transition: all 0.2s;
+      }
+
+      #addProductButton {
+        border-color: #4caf50;
+        color: #4caf50;
+        margin-right: 8px;
+      }
+
+      #addProductButton:hover {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      #removeProductButton {
+        border-color: #f44336;
+        color: #f44336;
+      }
+
+      #removeProductButton:hover {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <button type="button" id="addProductButton">Add Product</button>
+      <button type="button" id="removeProductButton">Remove Product</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryBody"></tbody>
+      </table>
+    </main>
+    <script>
+      // Initialize Inventory:
+      const inventory = [
+        { productId: 1, name: "Apple", price: 3, quantity: 20 },
+        { productId: 2, name: "Banana", price: 2, quantity: 5 },
+        { productId: 3, name: "Orange", price: 5, quantity: 10 },
+      ];
+
+      // Add Product Functionality:
+      function addProduct() {
+        const id = parseInt(prompt("Enter product ID:"));
+        const name = prompt("Enter product name:");
+        const price = parseFloat(prompt("Enter product price:"));
+        const quantity = parseInt(prompt("Enter product quantity:"));
+
+        // Validation
+        if (isNaN(id) || isNaN(price) || isNaN(quantity)) {
+          alert(
+            "Product ID, price and quantity should be numbers. Product name should be a text string."
+          );
+          return;
+        }
+
+        if (inventory.find((product) => product.productId === id)) {
+          alert(`Product with ID ${id} already exists. Please enter a new ID.`);
+          return;
+        }
+        //Validation End
+
+        const newProduct = { productId: id, name, price, quantity };
+        inventory.push(newProduct);
+
+        //Update display and total value
+        displayInventory();
+        calculateTotalValue();
+
+        alert("Product added successfully!");
+      }
+
+      // Remove Product Functionality:
+      function removeProduct() {
+        const id = parseInt(prompt("Enter product ID:"));
+        const index = inventory.findIndex(
+          (product) => product.productId === id
+        );
+        if (index === -1) {
+          alert(`Product with ID ${id} not found`);
+        } else {
+          inventory.splice(index, 1);
+
+          //Update display and total value
+          displayInventory();
+          calculateTotalValue();
+
+          alert("Product removed successfully!");
+        }
+      }
+
+      // Display Inventory Functionality:
+      function displayInventory() {
+        const inventoryBody = document.getElementById("inventoryBody");
+        inventoryBody.innerHTML = "";
+
+        for (let i = 0; i < inventory.length; i++) {
+          const product = inventory[i];
+          const lowStockTag =
+            product.quantity <= 5
+              ? '<span class="lowStock">Low in Stock</span>'
+              : "";
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${product.productId}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td>${product.quantity}${lowStockTag}</td>
+            <td>${product.price * product.quantity}</td>
+          `;
+          inventoryBody.appendChild(row);
+        }
+      }
+
+      // Calculate Total Value:
+      //Implement a function to calculate the total value of the inventory.
+      //Multiply the price of each product by its quantity and sum up the values.
+      //Display the total value to the user.
+      function calculateTotalValue() {
+        const inventoryBody = document.getElementById("inventoryBody");
+        let totalValue = 0;
+        for (let i = 0; i < inventory.length; i++) {
+          const product = inventory[i];
+          totalValue += product.price * product.quantity;
+        }
+        inventoryBody.innerHTML += `
+          <tr class="totalRow">
+            <th colspan="4" >Total Value:</td>
+            <td>${totalValue}</td>
+          </tr>
+        `;
+      }
+
+      // Initially Display Inventory:
+      displayInventory();
+      calculateTotalValue();
+
+      // bind the add function to the Add Product button
+      document
+        .getElementById("addProductButton")
+        .addEventListener("click", addProduct);
+
+      // bind the remove function to the Remove Product button
+      document
+        .getElementById("removeProductButton")
+        .addEventListener("click", removeProduct);
+    </script>
+  </body>
+</html>
