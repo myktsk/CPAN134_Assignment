@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 4</title>
+    <style>
+      .wrapper {
+        width: 400px;
+        border: 1px solid red;
+        padding: 24px 0;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Country:</h2>
+      <p>CANADA</p>
+      <h2>Capital:</h2>
+      <p id="Capital">OTTAWA</p>
+      <p>
+        <button id="hideCapitalButton" type="button">Hide capital name</button>
+      </p>
+      <p>
+        <button id="showCapitalButton" type="button">Show capital name</button>
+      </p>
+      <p>
+        <button id="toggleCapital" type="button">Toggle</button>
+      </p>
+      <p id="changeOnHover" class="bold">Hover on this paragraph for Yellow</p>
+      <p id="changeOnClick" class="bold">
+        Click on this paragraph for Green example
+      </p>
+    </div>
+
+    <script>
+      const capital = document.getElementById("Capital");
+      const hideCapitalButton = document.getElementById("hideCapitalButton");
+      const showCapitalButton = document.getElementById("showCapitalButton");
+      const toggleCapital = document.getElementById("toggleCapital");
+      const changeOnHover = document.getElementById("changeOnHover");
+      const changeOnClick = document.getElementById("changeOnClick");
+
+      hideCapitalButton.addEventListener("click", () => {
+        capital.style.display = "none";
+      });
+
+      showCapitalButton.addEventListener("click", () => {
+        capital.style.display = "block";
+      });
+
+      toggleCapital.addEventListener("click", () => {
+        capital.style.display =
+          capital.style.display === "none" ? "block" : "none";
+      });
+
+      changeOnHover.addEventListener("mouseover", () => {
+        changeOnHover.style.backgroundColor = "yellow";
+      });
+
+      changeOnClick.addEventListener("click", () => {
+        changeOnClick.style.backgroundColor = "green";
+      });
+    </script>
+  </body>
+</html>
